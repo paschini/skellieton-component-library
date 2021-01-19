@@ -1,4 +1,7 @@
+/** @format */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import './button.css';
 
 export interface ButtonProps {
@@ -34,15 +37,26 @@ export const Button: React.FC<ButtonProps> = ({
   label,
   ...props
 }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const mode = primary
+    ? 'storybook-button--primary'
+    : 'storybook-button--secondary';
   return (
     <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      type='button'
+      className={['storybook-button', `storybook-button--${size}`, mode].join(
+        ' '
+      )}
       style={{ backgroundColor }}
       {...props}
     >
       {label}
     </button>
   );
+};
+
+Button.propTypes = {
+  primary: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  backgroundColor: PropTypes.string,
+  label: PropTypes.string.isRequired
 };

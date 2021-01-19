@@ -1,0 +1,84 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier","react-hooks", "@typescript-eslint", "react", "import"],
+  "rules": {
+    "import/no-unresolved": "warn",
+
+    "import/no-internal-modules": [
+      "error",
+      {
+        "allow": [
+          "**/common/*",
+          "**/components/*",
+          "**/resources/*",
+          "**/info/*",
+          "jest-dom/*",
+          "react-dom/test-utils",
+          "@testing-library/jest-dom/extend-expect"
+        ]
+      }
+    ],
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "no-undef": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/consistent-type-assertions": [
+      "warn",
+      { "assertionStyle": "never" }
+    ],
+    "react/jsx-no-undef": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "relay/generated-flow-types": "off",
+    "prettier/prettier": ["error", { "singleQuote": true, "jsxSingleQuote": true }],
+    "quotes": ["error", "single", "avoid-escape"],
+    "jsx-quotes": ["error", "prefer-single"]
+  },
+  "overrides": [
+  {
+    "files": ["**/*.ts", "**/*.tsx"],
+    "rules": {
+      "@typescript-eslint/prefer-optional-chain": "warn"
+    }
+  },
+  {
+    "files": ["**/__tests__/**/*"],
+    "globals": {
+      "browser": true
+    }
+  }
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true,
+      "jsx": true
+    }
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"],
+        "moduleDirectory": ["node_modules", "./src"]
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}
