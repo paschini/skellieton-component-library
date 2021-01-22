@@ -15,21 +15,6 @@
   "plugins": ["prettier","react-hooks", "@typescript-eslint", "react", "import"],
   "rules": {
     "import/no-unresolved": "warn",
-
-    "import/no-internal-modules": [
-      "error",
-      {
-        "allow": [
-          "**/common/*",
-          "**/components/*",
-          "**/resources/*",
-          "**/info/*",
-          "jest-dom/*",
-          "react-dom/test-utils",
-          "@testing-library/jest-dom/extend-expect"
-        ]
-      }
-    ],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "no-undef": "error",
