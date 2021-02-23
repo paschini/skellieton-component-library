@@ -2,9 +2,12 @@
 
 import React, { ReactElement, MouseEvent, useState } from 'react';
 import style9 from 'style9';
+import { useColors } from '../ThemeProvider/ThemeProvider';
 import { createMonth, createWeek, formatMonth } from './DatePickerUtils';
 import ChevronLeft from './icons/ChevronLeft';
 import ChevronRight from './icons/ChevronRight';
+
+const themeColors = useColors();
 
 const DatePickerStyles = style9.create({
   container: {
@@ -13,7 +16,7 @@ const DatePickerStyles = style9.create({
     backgroundColor: 'white',
     borderStyle: 'solid',
     borderWidth: 1,
-    borderColor: '#cacaca',
+    borderColor: themeColors.background,
     borderRadius: 10
   },
   titleBar: {
@@ -61,6 +64,7 @@ function DatePicker({
   initialDate = new Date(Date.now())
 }: DatePickerProps): ReactElement {
   // const [referenceDay, setReferenceDay] = useState(initialDate?.getDay());
+
   const [referenceMonthName, setReferenceMonthName] = useState(
     formatMonth(initialDate?.getMonth()) // any functions that give out week days defaultly?
   );

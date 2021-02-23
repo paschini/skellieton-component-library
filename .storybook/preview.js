@@ -2,12 +2,15 @@
 import React from 'react';
 import { addDecorator } from '@storybook/react';
 import Center from '../src/components/Decorators/Center';
+import PastelTheme from '../src/components/Decorators/PastelTheme';
 
 addDecorator((Story) => (
   // This global decorator can be used to assign <ThemeProvider> components to all stories.
-  <Center>
-    <Story />
-  </Center>
+  <PastelTheme>
+    <Center>
+      <Story />
+    </Center>
+  </PastelTheme>
 ));
 
 export const parameters = {
